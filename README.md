@@ -64,3 +64,6 @@ myConfig := &heatmap.CalendarHeatmapConfig{
 
 h := heatmap.New(myConfig)
 ```
+
+## Example Output
+![Generated SVG](https://raw.githubusercontent.com/blurfx/calendar-heatmap/static/demo.svg)
