@@ -52,7 +52,6 @@ You can customize heat maps using the CalendarHeatmapConfig structure.
 	MonthLabels:      []string{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"},
 	MonthLabelHeight: 15,
 	WeekdayLabels:    []string{"", "Mon", "", "Wed", "", "Fri", ""},
-	weekLabelWidth:   0,
 }
 ```
 
