@@ -12,6 +12,7 @@ import (
 type CalendarHeatmapConfig struct {
 	Colors           []string
 	BlockSize        float64
+	BlockRoundness   float64
 	BlockMargin      float64
 	MonthLabels      []string
 	MonthLabelHeight float64
@@ -37,6 +38,7 @@ type point struct {
 var defaultConfig = &CalendarHeatmapConfig{
 	Colors:           []string{"#EBEDF0", "#9BE9A8", "#40C463", "#30A14E", "#216E39"},
 	BlockSize:        11,
+	BlockRoundness:	  2,
 	BlockMargin:      2,
 	MonthLabels:      []string{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"},
 	MonthLabelHeight: 15,
@@ -131,11 +133,13 @@ func (c *CalendarHeatmap) Generate(dateFrom, dateTo Date, data map[Date]int) *by
 				fillColor = config.Colors[value]
 			}
 
-			canvas.Rect(
+			canvas.Roundrect(
 				pos.X,
 				pos.Y + config.MonthLabelHeight,
 				config.BlockSize,
 				config.BlockSize,
+				config.BlockRoundness,
+				config.BlockRoundness,
 				fmt.Sprintf("fill:%s", fillColor),
 			)
 
